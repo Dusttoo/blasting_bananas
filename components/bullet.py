@@ -8,10 +8,6 @@ class Bullet(Sprite):
         super().__init__()
         self.screen = ai_game.screen
         self.settings = ai_game.settings
-        # self.color = self.settings.bullet_color
-
-        # self.rect = pygame.Rect(0, 0, self.settings.bullet_width,
-        #                         self.settings.bullet_height)
         self.image = pygame.transform.scale(pygame.image.load(
             './images/apple-gd3dce2028_640.bmp'), (20, 20))
         self.rect = self.image.get_rect()
@@ -21,10 +17,7 @@ class Bullet(Sprite):
 
     def update(self):
         self.y -= self.settings.bullet_speed
-
         self.rect.y = self.y
 
     def draw_bullet(self):
-        # pygame.draw.rect(self.screen, self.image, self.rect)
         self.screen.blit(self.image, self.rect)
-

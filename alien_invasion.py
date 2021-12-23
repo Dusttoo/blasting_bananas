@@ -3,18 +3,22 @@ import pygame
 from components.settings import Settings
 from components.ship import Ship
 from components.bullet import Bullet
+from components.alien import Alien
+
 
 class BlastingBananas:
     def __init__(self):
         pygame.init()
         self.settings = Settings()
-        self.screen = pygame.display.set_mode((0,0), pygame.FULLSCREEN)
+        self.screen = pygame.display.set_mode((0, 0), pygame.FULLSCREEN)
         self.settings.screen_width = self.screen.get_rect().width
         self.settings.screen_height = self.screen.get_rect().height
         pygame.display.set_caption("Blasting Bananas")
 
         self.ship = Ship(self)
         self.bullets = pygame.sprite.Group()
+        self.aliens = pygame.sprite.Group()
+        self._create_fleet()
 
     def run_game(self):
         while True:
@@ -23,10 +27,6 @@ class BlastingBananas:
             self._update_bullets()
             self._update_screen()
 
-            
-
-            
-    
     def _check_events(self):
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
@@ -35,8 +35,6 @@ class BlastingBananas:
                 self._check_keydown_events(event)
             elif event.type == pygame.KEYUP:
                 self._check_keyup_events(event)
-
-                
 
     def _check_keydown_events(self, event):
         if event.key == pygame.K_RIGHT:
@@ -70,9 +68,13 @@ class BlastingBananas:
         self.ship.blitme()
         for bullet in self.bullets.sprites():
             bullet.draw_bullet()
+        self.aliens.draw(self.screen)
 
         pygame.display.flip()
 
+    def _create_fleet(self):
+        alien = Alien(self)
+        self.aliens.add(alien)
 
 
 if __name__ == '__main__':
