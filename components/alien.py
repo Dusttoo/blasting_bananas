@@ -13,7 +13,6 @@ class Alien(Sprite):
 
         self.image = pygame.transform.scale(pygame.image.load(
             aliens[random.randrange(0, len(aliens))]), (100, 100))
-        print(self.image)
         self.rect = self.image.get_rect()
 
         self.rect.x = self.rect.width
