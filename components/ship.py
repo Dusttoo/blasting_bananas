@@ -6,7 +6,7 @@ class Ship:
         self.settings = ai_game.settings
         self.screen_rect = ai_game.screen.get_rect()
 
-        self.image = pygame.transform.scale(pygame.image.load('./banana-g73b561857_1280.bmp'), (100, 100))
+        self.image = pygame.transform.scale(pygame.image.load('./images/banana-g73b561857_1280.bmp'), (100, 100))
         self.rect = self.image.get_rect()
         self.rect.midbottom = self.screen_rect.midbottom
 

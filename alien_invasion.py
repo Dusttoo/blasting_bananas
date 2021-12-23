@@ -1,8 +1,8 @@
 import sys
 import pygame
-from settings import Settings
-from ship import Ship
-from bullet import Bullet
+from components.settings import Settings
+from components.ship import Ship
+from components.bullet import Bullet
 
 class BlastingBananas:
     def __init__(self):
@@ -11,10 +11,6 @@ class BlastingBananas:
         self.screen = pygame.display.set_mode((0,0), pygame.FULLSCREEN)
         self.settings.screen_width = self.screen.get_rect().width
         self.settings.screen_height = self.screen.get_rect().height
-
-        # self.screen = pygame.display.set_mode((
-        #     self.settings.screen_width, self.settings.screen_height
-        # ))
         pygame.display.set_caption("Blasting Bananas")
 
         self.ship = Ship(self)

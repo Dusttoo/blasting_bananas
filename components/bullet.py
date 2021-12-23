@@ -13,7 +13,7 @@ class Bullet(Sprite):
         # self.rect = pygame.Rect(0, 0, self.settings.bullet_width,
         #                         self.settings.bullet_height)
         self.image = pygame.transform.scale(pygame.image.load(
-            './apple-gd3dce2028_640.bmp'), (20, 20))
+            './images/apple-gd3dce2028_640.bmp'), (20, 20))
         self.rect = self.image.get_rect()
         self.rect.midtop = ai_game.ship.rect.midtop
 
